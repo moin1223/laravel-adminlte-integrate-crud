@@ -168,6 +168,17 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="{{route('categories.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Categories
+                <i class="right fas fa-angle-left"></i>
+              </p>
+          </li>
+
+
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>

@@ -46,9 +46,6 @@
    <!-- Main Sidebar Container -->
    @include('layouts.inc.admin-main-sidebar')
 
-   <!-- <main>
-            @yield('content')
-   </main> -->
 
    <div class="content-wrapper">
    @yield('content')

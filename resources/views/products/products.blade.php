@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-
+@include('sweetalert::alert')
 <div class="container mt-3">
   <h2>Products <a class="btn btn-info" href="{{route('product.create')}}">New Product</a></h2>
           

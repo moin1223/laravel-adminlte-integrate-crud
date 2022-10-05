@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Product;
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -35,13 +37,13 @@ class ProductController extends Controller
 
         ]);
 
-        // dd($request->title);
         $product = new Product;
         $product->title = $request->title;
         $product->category = $request->category;
         $product->freshness = $request->freshness;
         $product->size = json_encode($request->size);
         $product->save();
+        Alert::success('Product Added Successfully');
         return redirect()->route('product.index'); 
     }
 
@@ -63,6 +65,7 @@ class ProductController extends Controller
         $product->freshness = $request->freshness;
         $product->size = json_encode($request->size);
         $product->save();
+        Alert::success('Product Updated Successfully');
         return redirect()->route('product.index'); 
     }
 
@@ -73,6 +76,7 @@ class ProductController extends Controller
 
         $product = Product::whereId($id)->first();
         $product->delete();
+        Alert::success('Product Deleted Successfully');
         return redirect()->route('product.index'); 
     }
  

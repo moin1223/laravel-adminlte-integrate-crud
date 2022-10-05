@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
 <div class="container">
       <div class="bg-light mt-2">
       <form method="POST" action="{{route('product.store')}}">

@@ -25,9 +25,13 @@ Route::get('/admin/dashboard', [DsahboardController::class, 'index'])->name('adm
 Route::get('/admin/categories', [App\Http\Controllers\ProductController::class, 'index'])->name('categories.index');
 
 // products
-Route::get('/admin/products',[ProductController::class,'index'])->name('product.index');
-Route::get('/admin/product-create',[ProductController::class,'create'])->name('product.create');
-Route::post('/admin/product-store',[ProductController::class,'store'])->name('product.store');
-Route::get('/admin/product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
-Route::put('/admin/product-update/{id}',[ProductController::class,'update'])->name('product.update');
-Route::delete('/admin/product-delete/{id}',[ProductController::class,'destroy'])->name('destroy.index');
+Route::group(['prefix'=>'admin/dashboard'], function(){
+
+Route::get('/products',[ProductController::class,'index'])->name('product.index');
+Route::get('/product-create',[ProductController::class,'create'])->name('product.create');
+Route::post('/product-store',[ProductController::class,'store'])->name('product.store');
+Route::get('/product-edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+Route::put('/product-update/{id}',[ProductController::class,'update'])->name('product.update');
+Route::delete('/product-delete/{id}',[ProductController::class,'destroy'])->name('destroy.index');
+
+});

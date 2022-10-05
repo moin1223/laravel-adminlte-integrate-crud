@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\DsahboardController;
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Auth::routes();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+require __DIR__.'/auth.php';
+
+// Adminauth
+Route:: namespace('Admin')->prefix('admin')->name('admin.')->group(function() {
+Route::namespace('Auth')->group(function(){
+    //login
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('login', [AuthenticatedSessionController::class, 'store'])->name('adminlogin');
+});
+});
+
+
+
+
+// Admindashboard
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/dashboard', [DsahboardController::class, 'index'])->name('admin.index');
 Route::get('/admin/categories', [App\Http\Controllers\ProductController::class, 'index'])->name('categories.index');

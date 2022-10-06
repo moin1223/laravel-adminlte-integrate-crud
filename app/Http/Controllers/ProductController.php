@@ -33,8 +33,10 @@ class ProductController extends Controller
     {
         //validation
         $request->validate([
-            'title' => 'required|unique:products|max:200'
-
+            'title' => 'required|unique:products|max:200',
+            'category' => 'required',
+            'freshness' => 'required',
+            'size' => 'required',
         ]);
 
         $product = new Product;

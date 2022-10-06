@@ -11,6 +11,7 @@
               <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Product Title</label>
                   <input type="text"  name="title"  class="form-control" id="exampleFormControlInput1">
+                  <span class='text-danger'>@error('title'){{$message}}@enderror</span>
               </div>
 
                <div class="mb-3">
@@ -21,11 +22,9 @@
                             <option value="Travel">Travel</option>
                             <option value="Business">Business</option>
                       </select>
-                      <!-- <select class="js-example-basic-single" multiple="multiple" name="state[]">
-                    <option value="AL">Alabama</option>
-                    <option value="WY">Wyoming</option>
-                </select> -->
+                    
                </div>
+               <span  class='text-danger'>@error('category'){{$message}}@enderror</span>
 
                <div class="mb-3">
                  <label for="exampleFormControlInput1" class="form-label">Product Freshness</label>
@@ -44,6 +43,7 @@
                       Second Hand
                     </label>
                   </div>
+                  <span class='text-danger'>@error('freshness'){{$message}}@enderror</span>
 
                                 
               </div>
@@ -69,8 +69,10 @@
                             <label class="form-check-label" for="flexCheckDefault">
                              M
                              </label>
+                            
                              
                       </div>
+                      <span class='text-danger'>@error('size'){{$message}}@enderror</span>
 
               </div>
           <button type="submit" class="btn btn-primary">Create</button>

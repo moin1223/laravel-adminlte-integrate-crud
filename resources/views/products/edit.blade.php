@@ -2,6 +2,12 @@
 @section('content')
 <div class="container">
       <div class="bg-light mt-2">
+       <!-- 
+        @php 
+        $size = json_decode($product->size);
+        @endphp
+        -->
+
       <form method="POST" action="{{ route('product.update',[$product->id]) }}">
       @csrf
         @method('put')
@@ -100,24 +106,36 @@
                         <input
                          class="form-check-input" 
                          type="checkbox" name="size[]"
-                          value="XL" id="flexCheckDefault">
-                            <label class="form-check-label" 
+                          value="XL" 
+                           
+                          >
+                        <label class="form-check-label" 
                             for="flexCheckDefault"
-                         
+                      
                             >
                               XL
                              </label>
                              
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="size[]" value="L" id="flexCheckDefault">
+                        <input class="form-check-input"
+                         type="checkbox" 
+                         name="size[]"
+                          value="L"
+                           
+                           >
                             <label class="form-check-label" for="flexCheckDefault">
                              L
                              </label>
                              
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="size[]" value="M" id="flexCheckDefault">
+                        <input class="form-check-input"
+                         type="checkbox"
+                          name="size[]"
+                           value="M" 
+                            
+                          >
                             <label class="form-check-label" for="flexCheckDefault">
                              M
                              </label>

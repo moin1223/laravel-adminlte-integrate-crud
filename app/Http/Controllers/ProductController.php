@@ -17,7 +17,7 @@ class ProductController extends Controller
 
         // dd($products);
 
-        return view('products.products', ['collectionData' => $products]);
+        return view('products.index', ['collectionData' => $products]);
       
     }
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         $product->size = json_encode($request->size);
         $product->save();
         Alert::success('Product Added Successfully');
-        return redirect()->route('product.index'); 
+        return redirect()->route('admin.index'); 
     }
 
     //edit

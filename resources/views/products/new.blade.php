@@ -17,11 +17,11 @@
                <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Product Category</label>
                         <select class="form-select"  name="category" id="floatingSelect" aria-label="Floating label select example">
-                            <option  type="text" selected>Select Category</option>
+                            <option value='' hidden>Select Category</option>
                             <option value="Beauty">Beauty</option>
                             <option value="Travel">Travel</option>
                             <option value="Business">Business</option>
-                      </select>
+                       </select>
                     
                </div>
                <span  class='text-danger'>@error('category'){{$message}}@enderror</span>
